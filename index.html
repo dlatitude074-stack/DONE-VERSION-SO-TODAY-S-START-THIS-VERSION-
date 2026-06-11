@@ -708,6 +708,161 @@ input:checked + .tgl-track::after { transform:translateX(34px); background:var(-
       <button class="btn-push" id="pushBtn" onclick="_vibrateTap();pushToGist()">TRANSMIT TO GIST</button>
     </div>
 
+    <!-- LAN TRIGGER CARD -->
+    <div class="card" id="lanTriggerCard" style="background:linear-gradient(135deg,#000000 0%,#001a0a 100%);border-color:rgba(0,229,255,0.25);">
+      <div class="card-title" style="color:#00e5ff;">▸ LAN TRIGGER — REMOTE KEYS</div>
+
+      <!-- Hidden IP elements (IP hardcoded from localStorage) -->
+      <div id="lanIpStatus" style="display:none;"></div>
+      <input type="hidden" id="lanIpInput">
+
+      <!-- Main Actions — Alt+Q, Alt+C, Alt+M -->
+      <div style="font-size:10px;letter-spacing:2px;color:#2a3a55;margin-bottom:6px;">MAIN ACTIONS</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;">
+
+        <!-- FIRE ASSAY — Sky Blue -->
+        <button onclick="_vibrateTap();lanTrigger('fill')"
+          style="padding:18px 4px;border-radius:10px;border:1px solid #00cfff;background:linear-gradient(160deg,#001a2e 0%,#003a55 100%);color:#00cfff;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:0.5px;line-height:1.4;text-align:center;box-shadow:0 0 10px rgba(0,207,255,0.18);">
+          ⚡ FIRE<br>ASSAY<br><span style="font-size:9px;opacity:0.6;font-weight:400;">Alt+Q</span>
+        </button>
+
+        <!-- CORNET REFILL — Navy Blue -->
+        <button onclick="_vibrateTap();lanTrigger('cornet')"
+          style="padding:18px 4px;border-radius:10px;border:1px solid #4d79ff;background:linear-gradient(160deg,#000a2e 0%,#001060 100%);color:#7aa0ff;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:0.5px;line-height:1.4;text-align:center;box-shadow:0 0 10px rgba(77,121,255,0.18);">
+          🔄 CORNET<br>REFILL<br><span style="font-size:9px;opacity:0.6;font-weight:400;">Alt+C</span>
+        </button>
+
+        <!-- AUTO ASSAY — Neon Pink -->
+        <button onclick="_vibrateTap();lanTrigger('auto')"
+          style="padding:18px 4px;border-radius:10px;border:1px solid #ff2d78;background:linear-gradient(160deg,#1a0010 0%,#3a0025 100%);color:#ff5ca8;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:0.5px;line-height:1.4;text-align:center;box-shadow:0 0 10px rgba(255,45,120,0.18);">
+          🤖 AUTO<br>ASSAY<br><span style="font-size:9px;opacity:0.6;font-weight:400;">Alt+M</span>
+        </button>
+
+      </div>
+      <!-- Utility Actions — Ctrl+Shift D, L, K, X -->
+      <div style="font-size:10px;letter-spacing:2px;color:#2a3a55;margin:10px 0 6px;">UTILITY ACTIONS</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+
+        <!-- ADD VALUES — Burgundy Red -->
+        <button onclick="_vibrateTap();lanTrigger('sets')"
+          style="padding:14px 4px;border-radius:10px;border:1px solid #c0392b;background:linear-gradient(160deg,#1a0000 0%,#3a0a08 100%);color:#e8635a;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:0.5px;line-height:1.4;text-align:center;box-shadow:0 0 8px rgba(192,57,43,0.18);">
+          ⚙️ ADD<br>VALUES<br><span style="font-size:9px;opacity:0.6;font-weight:400;">Ctrl+Shift+D</span>
+        </button>
+
+        <!-- SESSION SUMMARY — Jambia Purple -->
+        <button onclick="_vibrateTap();lanTrigger('session')"
+          style="padding:14px 4px;border-radius:10px;border:1px solid #8e44ad;background:linear-gradient(160deg,#0e0018 0%,#240038 100%);color:#c678dd;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:0.5px;line-height:1.4;text-align:center;box-shadow:0 0 8px rgba(142,68,173,0.18);">
+          📊 SESSION<br>SUMMARY<br><span style="font-size:9px;opacity:0.6;font-weight:400;">Ctrl+Shift+L</span>
+        </button>
+
+        <!-- ROW MANAGER — Light Pink -->
+        <button onclick="_vibrateTap();lanTrigger('rowmgr')"
+          style="padding:14px 4px;border-radius:10px;border:1px solid #f8a5c2;background:linear-gradient(160deg,#1a0015 0%,#2e0028 100%);color:#f8a5c2;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:0.5px;line-height:1.4;text-align:center;box-shadow:0 0 8px rgba(248,165,194,0.15);">
+          📋 ROW<br>MANAGER<br><span style="font-size:9px;opacity:0.6;font-weight:400;">Ctrl+Shift+K</span>
+        </button>
+
+        <!-- STATUS CHECK — Burgundy Red -->
+        <button onclick="_vibrateTap();lanTrigger('status')"
+          style="padding:14px 4px;border-radius:10px;border:1px solid #c0392b;background:linear-gradient(160deg,#1a0000 0%,#3a0a08 100%);color:#e8635a;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:0.5px;line-height:1.4;text-align:center;box-shadow:0 0 8px rgba(192,57,43,0.18);">
+          🔐 STATUS<br>CHECK<br><span style="font-size:9px;opacity:0.6;font-weight:400;">Ctrl+Shift+X</span>
+        </button>
+
+      </div>
+
+      <!-- AUTO SCHEDULE — full width — Jambhla Purple (5th extra) -->
+      <button onclick="_vibrateTap();lanTrigger('schedule')"
+        style="width:100%;padding:11px 4px;border-radius:10px;border:1px solid #8e44ad;background:linear-gradient(160deg,#0e0018 0%,#240038 100%);color:#c678dd;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:1px;margin-bottom:6px;box-shadow:0 0 8px rgba(142,68,173,0.18);">
+        🗓️ AUTO SCHEDULE &nbsp;<span style="font-size:9px;opacity:0.6;font-weight:400;">Ctrl+Shift+S</span>
+      </button>
+
+      <!-- STORAGE INSPECTOR — Light Pink (matches utility theme) -->
+      <button onclick="_vibrateTap();openStorageViewer()"
+        style="width:100%;padding:12px 4px;border-radius:10px;border:1px solid #f8a5c2;background:linear-gradient(160deg,#1a0015 0%,#2e0028 100%);color:#f8a5c2;font-family:'Share Tech Mono',monospace;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:1px;margin-bottom:4px;box-shadow:0 0 10px rgba(248,165,194,0.15);">
+        📦 STORAGE INSPECTOR
+      </button>
+
+      <div id="lanTrigMsg" style="font-size:12px;letter-spacing:1px;text-align:center;min-height:18px;color:#2a3a55;margin-top:4px;"></div>
+
+    </div>
+
+
+    <!-- ══ VALUE SETS CARD ══ -->
+    <div class="card" id="valueSetsCard" style="background:linear-gradient(135deg,#000000 0%,#050015 100%);border-color:rgba(160,80,255,0.25);">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div class="card-title" style="color:var(--sky);margin-bottom:0;">▸ VALUE SETS</div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button onclick="_vibrateTap();fbPullSetsFromGist()"
+            style="padding:5px 12px;background:transparent;border:1px solid rgba(160,80,255,0.5);border-radius:8px;color:var(--sky3);font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:1px;"
+            title="Pull latest sets from GitHub Gist">⬇ GIST</button>
+          <div id="setsActiveBadge" style="font-size:11px;color:var(--sky3);border:1px solid rgba(160,80,255,0.35);border-radius:20px;padding:3px 10px;letter-spacing:1px;">SET 1 ACTIVE</div>
+        </div>
+      </div>
+
+      <!-- Existing sets list -->
+      <div id="fbSetsContainer"></div>
+
+      <!-- Add Set form -->
+      <div id="fbAddSetForm" style="margin-top:10px;">
+        <div id="fbAddSetTitle" style="font-size:12px;letter-spacing:2px;color:var(--dim2);text-transform:uppercase;margin-bottom:10px;">ADD SET 1 (FROM ROW 1)</div>
+
+        <!-- M11 Row -->
+        <div style="font-size:11px;letter-spacing:1px;color:var(--sky3);margin-bottom:6px;text-transform:uppercase;">M11</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px;">
+          <div>
+            <div style="font-size:10px;letter-spacing:1px;color:var(--dim2);margin-bottom:4px;">STRIP <span style="background:var(--sky3);color:#000;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700;">TYPE</span></div>
+            <input type="number" step="any" id="fb_m11_strip" placeholder="0.000"
+              style="width:100%;background:#000;border:1px solid var(--border);border-radius:7px;color:var(--sky2);font-family:'Share Tech Mono',monospace;font-size:13px;padding:9px 10px;outline:none;transition:border-color .2s;"
+              oninput="fbAutoCalc('m11')"
+              onfocus="this.style.borderColor='var(--sky3)'" onblur="this.style.borderColor='var(--border)'">
+          </div>
+          <div>
+            <div style="font-size:10px;letter-spacing:1px;color:var(--dim2);margin-bottom:4px;">SILVER <span style="background:#00b894;color:#000;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700;">AUTO</span></div>
+            <input type="number" id="fb_m11_silver" placeholder="auto" readonly
+              style="width:100%;background:#000814;border:1px solid rgba(0,229,255,0.2);border-radius:7px;color:var(--green);font-family:'Share Tech Mono',monospace;font-size:13px;padding:9px 10px;outline:none;font-weight:700;">
+          </div>
+          <div>
+            <div style="font-size:10px;letter-spacing:1px;color:var(--dim2);margin-bottom:4px;">CORNET <span style="background:#00b894;color:#000;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700;">AUTO</span></div>
+            <input type="number" id="fb_m11_cornet" placeholder="auto" readonly
+              style="width:100%;background:#000814;border:1px solid rgba(0,229,255,0.2);border-radius:7px;color:var(--green);font-family:'Share Tech Mono',monospace;font-size:13px;padding:9px 10px;outline:none;font-weight:700;">
+          </div>
+        </div>
+
+        <!-- M12 Row -->
+        <div style="font-size:11px;letter-spacing:1px;color:var(--sky3);margin-bottom:6px;text-transform:uppercase;">M12</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;">
+          <div>
+            <div style="font-size:10px;letter-spacing:1px;color:var(--dim2);margin-bottom:4px;">STRIP <span style="background:var(--sky3);color:#000;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700;">TYPE</span></div>
+            <input type="number" step="any" id="fb_m12_strip" placeholder="0.000"
+              style="width:100%;background:#000;border:1px solid var(--border);border-radius:7px;color:var(--sky2);font-family:'Share Tech Mono',monospace;font-size:13px;padding:9px 10px;outline:none;transition:border-color .2s;"
+              oninput="fbAutoCalc('m12')"
+              onfocus="this.style.borderColor='var(--sky3)'" onblur="this.style.borderColor='var(--border)'">
+          </div>
+          <div>
+            <div style="font-size:10px;letter-spacing:1px;color:var(--dim2);margin-bottom:4px;">SILVER <span style="background:#00b894;color:#000;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700;">AUTO</span></div>
+            <input type="number" id="fb_m12_silver" placeholder="auto" readonly
+              style="width:100%;background:#000814;border:1px solid rgba(0,229,255,0.2);border-radius:7px;color:var(--green);font-family:'Share Tech Mono',monospace;font-size:13px;padding:9px 10px;outline:none;font-weight:700;">
+          </div>
+          <div>
+            <div style="font-size:10px;letter-spacing:1px;color:var(--dim2);margin-bottom:4px;">CORNET <span style="background:#00b894;color:#000;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700;">AUTO</span></div>
+            <input type="number" id="fb_m12_cornet" placeholder="auto" readonly
+              style="width:100%;background:#000814;border:1px solid rgba(0,229,255,0.2);border-radius:7px;color:var(--green);font-family:'Share Tech Mono',monospace;font-size:13px;padding:9px 10px;outline:none;font-weight:700;">
+          </div>
+        </div>
+
+        <!-- Rows -->
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="font-size:12px;letter-spacing:1px;color:var(--dim2);text-transform:uppercase;">Rows:</span>
+          <input type="number" id="fb_rows" value="17" min="1"
+            style="width:60px;background:#000;border:1px solid var(--border);border-radius:7px;color:var(--sky2);font-family:'Share Tech Mono',monospace;font-size:14px;font-weight:700;padding:7px;text-align:center;outline:none;"
+            onfocus="this.style.borderColor='var(--sky3)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+
+        <!-- Buttons -->
+        <button class="btn-full btn-green" onclick="_vibrateTap();fbAddSet()" id="fbAddBtn">+ ADD SET</button>
+        <div id="fbSetMsg" style="font-size:13px;letter-spacing:1px;margin-top:8px;min-height:18px;text-align:center;color:var(--dim2);"></div>
+      </div>
+    </div>
+
     <!-- AUTH PIN CARD -->
     <div class="card" id="authPinCard" style="border-color:rgba(0,229,255,0.25);background:linear-gradient(135deg,#000000 0%,#00101a 100%);">
       <div class="card-title" style="color:#00e5ff;">▸ Remote Auth — Transmit PIN to PC</div>
@@ -833,6 +988,34 @@ input:checked + .tgl-track::after { transform:translateX(34px); background:var(-
             <span class="ext-link-arr">↗</span>
           </a>
         </div>
+
+        <!-- ══ DATA BACKUP GIST ══ -->
+        <div style="border-top:1px solid #1a0030;margin-top:16px;padding-top:14px;">
+          <div class="card-title" style="color:#f59e0b;margin-bottom:4px;">▸ Data Backup Gist ID</div>
+          <div style="font-size:10px;color:#6b7280;letter-spacing:1px;margin-bottom:8px;">Extension मधील bis_backup_gist_id — session/sets/rows backup</div>
+          <input type="text" class="t-input" id="bkGistIdIn" placeholder="backup gist id टाका" autocomplete="off" style="letter-spacing:0.5px;font-size:14px;">
+          <button class="btn-full" onclick="_vibrateTap();saveBkGistId()" style="background:rgba(245,158,11,0.1);border:1px solid #f59e0b;color:#f59e0b;margin-bottom:6px;">SAVE BACKUP GIST ID</button>
+          <div class="tok-status empty" id="bkGistIdStatus">No Backup Gist ID saved yet</div>
+
+          <div class="card-title" style="color:#f59e0b;margin-top:14px;margin-bottom:4px;">▸ Data Backup Token</div>
+          <div style="font-size:10px;color:#6b7280;letter-spacing:1px;margin-bottom:8px;">bis_backup_token — same ghp_ token असेल तर वरचाच वापरा</div>
+          <input type="password" class="t-input" id="bkTokIn" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+          <button class="btn-full" onclick="_vibrateTap();saveBkToken()" style="background:rgba(245,158,11,0.1);border:1px solid #f59e0b;color:#f59e0b;margin-bottom:6px;">SAVE BACKUP TOKEN</button>
+          <div class="tok-status empty" id="bkTokStatus">No Backup Token saved yet</div>
+        </div>
+
+        <!-- PC IP for LAN Trigger -->
+        <div class="card-title" style="color:#00e5ff;margin-top:14px;margin-bottom:8px;">▸ PC IP Address (LAN)</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <input type="text" id="lanIpInputVisible" placeholder="192.168.1.X" inputmode="decimal"
+            style="flex:1;background:#000;border:1px solid #002a20;border-radius:8px;color:#00e5ff;font-family:'Share Tech Mono',monospace;font-size:14px;padding:10px 12px;outline:none;letter-spacing:1px;box-sizing:border-box;"
+            onkeydown="if(event.key==='Enter')saveLanIpFromCreds()">
+          <button onclick="_vibrateTap();saveLanIpFromCreds()"
+            style="padding:10px 16px;border-radius:8px;border:1px solid #00e5ff;background:transparent;color:#00e5ff;font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">
+            SAVE
+          </button>
+        </div>
+        <div id="lanIpStatusVisible" style="font-size:11px;color:#2a3a55;letter-spacing:1px;margin-top:6px;">No IP saved</div>
       </div>
     </div>
 
@@ -886,6 +1069,47 @@ function loadGistId() {
   } else {
     el.textContent = 'No Gist ID saved yet';
     el.className = 'tok-status empty';
+  }
+}
+
+// ── BACKUP GIST KEYS ──
+const BK_GIST_KEY = 'mob_bk_gist_id';
+const BK_TOK_KEY  = 'mob_bk_token';
+
+function saveBkGistId() {
+  const val = document.getElementById('bkGistIdIn').value.trim();
+  if (!val) { document.getElementById('bkGistIdStatus').textContent = '❌ Empty!'; return; }
+  localStorage.setItem(BK_GIST_KEY, val);
+  document.getElementById('bkGistIdIn').value = '';
+  document.getElementById('bkGistIdIn').placeholder = '(saved ✅)';
+  const el = document.getElementById('bkGistIdStatus');
+  el.textContent = '✅ Backup Gist ID saved!';
+  el.className = 'tok-status saved';
+}
+
+function saveBkToken() {
+  const val = document.getElementById('bkTokIn').value.trim();
+  if (!val) { document.getElementById('bkTokStatus').textContent = '❌ Empty!'; return; }
+  localStorage.setItem(BK_TOK_KEY, val);
+  document.getElementById('bkTokIn').value = '';
+  document.getElementById('bkTokIn').placeholder = '(saved ✅)';
+  const el = document.getElementById('bkTokStatus');
+  el.textContent = '✅ Backup Token saved!';
+  el.className = 'tok-status saved';
+}
+
+function loadBkCreds() {
+  const g = localStorage.getItem(BK_GIST_KEY);
+  const t = localStorage.getItem(BK_TOK_KEY);
+  const gEl = document.getElementById('bkGistIdStatus');
+  const tEl = document.getElementById('bkTokStatus');
+  if (gEl) {
+    if (g) { gEl.textContent = '✅ Saved — ' + g.substring(0,14)+'...'; gEl.className='tok-status saved'; }
+    else   { gEl.textContent = 'No Backup Gist ID saved yet'; gEl.className='tok-status empty'; }
+  }
+  if (tEl) {
+    if (t) { tEl.textContent = '✅ Saved — ' + t.substring(0,10)+'...'; tEl.className='tok-status saved'; }
+    else   { tEl.textContent = 'No Backup Token saved yet'; tEl.className='tok-status empty'; }
   }
 }
 const TOK_KEY = 'isb_rc_token';
@@ -1188,9 +1412,85 @@ const AUTH_PIN_DEFAULT  = '84546515';
 
 
 // ── INIT — runs once on page load ──
+// ══ LAN TRIGGER — IP + ACTIONS ══
+const LAN_IP_KEY = 'bis_lan_ip';
+
+function _initLanIp() {
+  var saved = localStorage.getItem(LAN_IP_KEY) || '';
+  if (saved) {
+    document.getElementById('lanIpInput').value = saved;
+    document.getElementById('lanIpStatus').textContent = '✅ Saved: ' + saved + ':5000';
+    document.getElementById('lanIpStatus').style.color = '#00e5ff';
+    // Also fill visible input if exists
+    var vis = document.getElementById('lanIpInputVisible');
+    var visSt = document.getElementById('lanIpStatusVisible');
+    if (vis) vis.value = saved;
+    if (visSt) { visSt.textContent = '✅ Saved: ' + saved + ':5000'; visSt.style.color = '#00e5ff'; }
+  }
+}
+
+function saveLanIpFromCreds() {
+  var val = (document.getElementById('lanIpInputVisible').value || '').trim();
+  if (!val) {
+    document.getElementById('lanIpStatusVisible').textContent = '❌ IP enter kar!';
+    document.getElementById('lanIpStatusVisible').style.color = '#ff3355';
+    return;
+  }
+  localStorage.setItem(LAN_IP_KEY, val);
+  document.getElementById('lanIpInput').value = val;
+  document.getElementById('lanIpStatusVisible').textContent = '✅ Saved: ' + val + ':5000';
+  document.getElementById('lanIpStatusVisible').style.color = '#00e5ff';
+}
+
+function saveLanIp() {
+  var val = (document.getElementById('lanIpInput').value || '').trim();
+  if (!val) {
+    document.getElementById('lanIpStatus').textContent = '❌ IP enter kar!';
+    document.getElementById('lanIpStatus').style.color = '#ff3355';
+    return;
+  }
+  localStorage.setItem(LAN_IP_KEY, val);
+  document.getElementById('lanIpStatus').textContent = '✅ Saved: ' + val + ':5000';
+  document.getElementById('lanIpStatus').style.color = '#00e5ff';
+}
+
+async function lanTrigger(action) {
+  var ip = localStorage.getItem(LAN_IP_KEY);
+  if (!ip) {
+    ip = prompt('PC IP Address enter kar (e.g. 192.168.1.5):');
+    if (!ip || !ip.trim()) { _setLanMsg('❌ IP nahi dila!', '#ff3355'); return; }
+    ip = ip.trim();
+    localStorage.setItem(LAN_IP_KEY, ip);
+  }
+  _setLanMsg('⏳ Triggering...', '#fbbf24');
+  var labels = {
+    fill:    '⚡ Fire Assay triggered!',
+    cornet:  '🔄 Cornet Refill triggered!',
+    auto:    '🤖 Auto Fire Assay triggered!'
+  };
+  try {
+    var r = await fetch('http://' + ip + ':5000/trigger/' + action, { signal: AbortSignal.timeout(4000) });
+    if (r.ok) {
+      _setLanMsg(labels[action] || '✅ Done!', '#00e5ff');
+    } else {
+      _setLanMsg('❌ Server error: ' + r.status, '#ff3355');
+    }
+  } catch(e) {
+    _setLanMsg('❌ PC reach nahi zala — script chalvli ahe ka?', '#ff3355');
+  }
+}
+
+function _setLanMsg(msg, color) {
+  var el = document.getElementById('lanTrigMsg');
+  el.textContent = msg;
+  el.style.color = color || '#00e5ff';
+  setTimeout(function(){ el.textContent = ''; el.style.color = '#2a3a55'; }, 3000);
+}
+
 window.addEventListener('load', () => {
   loadToken();
   loadGistId();
+  _initLanIp();
   startSessionTimer();
   startAutoSync();
   fetchCurrent();
@@ -1802,6 +2102,7 @@ window.addEventListener('load', () => {
       sessionStorage.setItem(GH_CREDS_UNLOCKED_KEY, '1');
       loadToken();
       loadGistId();
+      loadBkCreds();
     } else {
       const err = document.getElementById('ghCredsLockErr');
       err.textContent = '✗ WRONG PASSWORD';
@@ -2093,6 +2394,244 @@ window.addEventListener('load', () => {
 
 </script>
 
+<!-- ══ VALUE SETS JS ══ -->
+<script>
+(function() {
+  const FB_SETS_KEY = 'fb_value_sets';
+
+  function _loadSets() {
+    try { return JSON.parse(localStorage.getItem(FB_SETS_KEY) || '[]'); } catch(e) { return []; }
+  }
+
+  // ── Push sets to GitHub Gist (merges with existing data) ──
+  async function _pushSetsToGist(sets) {
+    var token  = localStorage.getItem('isb_rc_token');
+    var gistId = localStorage.getItem('isb_rc_gist_id');
+    if (!token || !gistId) { _setMsg('⚠ Save Token & Gist ID first!', 'err'); return; }
+    _setMsg('⏳ Syncing to Gist...', '');
+    try {
+      var r1 = await fetch('https://api.github.com/gists/' + gistId, {
+        cache: 'no-store',
+        headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' }
+      });
+      if (!r1.ok) throw new Error('HTTP ' + r1.status);
+      var data = await r1.json();
+      var raw  = (data.files && data.files['bis_control.json']) ? data.files['bis_control.json'].content : '{}';
+      var json = JSON.parse(raw);
+      json.sets = sets;
+      var r2 = await fetch('https://api.github.com/gists/' + gistId, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ files: { 'bis_control.json': { content: JSON.stringify(json, null, 2) } } })
+      });
+      if (!r2.ok) throw new Error('Push failed: HTTP ' + r2.status);
+      _setMsg('✓ ' + sets.length + ' set(s) synced to Gist!', 'ok');
+    } catch(e) {
+      _setMsg('⚠ Gist sync failed: ' + e.message, 'err');
+    }
+  }
+
+  // ── Pull sets from Gist ──
+  async function _pullSetsFromGist(showMsg) {
+    var token  = localStorage.getItem('isb_rc_token');
+    var gistId = localStorage.getItem('isb_rc_gist_id');
+    if (!token || !gistId) { if(showMsg) _setMsg('⚠ Save Token & Gist ID first!', 'err'); return; }
+    if (showMsg) _setMsg('⏳ Loading from Gist...', '');
+    try {
+      var r = await fetch('https://api.github.com/gists/' + gistId, {
+        cache: 'no-store',
+        headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' }
+      });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      var data = await r.json();
+      var raw  = (data.files && data.files['bis_control.json']) ? data.files['bis_control.json'].content : '{}';
+      var json = JSON.parse(raw);
+      if (json.sets && Array.isArray(json.sets) && json.sets.length > 0) {
+        localStorage.setItem(FB_SETS_KEY, JSON.stringify(json.sets));
+        _renderSets();
+        if (showMsg) _setMsg('✓ ' + json.sets.length + ' set(s) loaded from Gist!', 'ok');
+      } else {
+        if (showMsg) _setMsg('ℹ Gist has no sets yet.', '');
+      }
+    } catch(e) {
+      if (showMsg) _setMsg('⚠ Pull failed: ' + e.message, 'err');
+    }
+  }
+  window.fbPullSetsFromGist = function() { _pullSetsFromGist(true); };
+
+  function _saveSets(arr) {
+    localStorage.setItem(FB_SETS_KEY, JSON.stringify(arr));
+    _pushSetsToGist(arr);
+  }
+
+  // Auto-calc: Silver = round(999.9 × strip × 2.296 / 1000), Cornet = strip × 0.9999
+  window.fbAutoCalc = function(mach) {
+    var s = parseFloat(document.getElementById('fb_' + mach + '_strip').value);
+    if (!isNaN(s) && s > 0) {
+      document.getElementById('fb_' + mach + '_silver').value = Math.round((999.9 * s * 2.296) / 1000);
+      document.getElementById('fb_' + mach + '_cornet').value = (s * 0.9999).toFixed(3);
+    } else {
+      document.getElementById('fb_' + mach + '_silver').value = '';
+      document.getElementById('fb_' + mach + '_cornet').value = '';
+    }
+  };
+
+  window.fbAddSet = function() {
+    var s11 = document.getElementById('fb_m11_strip').value.trim();
+    var v11 = document.getElementById('fb_m11_silver').value.trim();
+    var c11 = document.getElementById('fb_m11_cornet').value.trim();
+    var s12 = document.getElementById('fb_m12_strip').value.trim();
+    var v12 = document.getElementById('fb_m12_silver').value.trim();
+    var c12 = document.getElementById('fb_m12_cornet').value.trim();
+    var rows = parseInt(document.getElementById('fb_rows').value) || 17;
+
+    if (!s11 || !s12) { _setMsg('⚠ Strip M11 & M12 required!', 'err'); return; }
+
+    var sets = _loadSets();
+    var editIdx = parseInt(document.getElementById('fbAddBtn').dataset.editIdx || '-1');
+
+    var entry = { m11_strip: s11, m11_silver: v11, m11_cornet: c11,
+                  m12_strip: s12, m12_silver: v12, m12_cornet: c12, rows: rows };
+
+    if (editIdx >= 0) {
+      sets[editIdx] = entry;
+      _setMsg('✓ Set ' + (editIdx+1) + ' updated!', 'ok');
+    } else {
+      sets.push(entry);
+      _setMsg('✓ Set ' + sets.length + ' added!', 'ok');
+    }
+    _saveSets(sets);
+    _resetForm();
+    _renderSets();
+  };
+
+  function _resetForm() {
+    ['fb_m11_strip','fb_m11_silver','fb_m11_cornet',
+     'fb_m12_strip','fb_m12_silver','fb_m12_cornet'].forEach(function(id){
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('fb_rows').value = 17;
+    document.getElementById('fbAddBtn').dataset.editIdx = '-1';
+    document.getElementById('fbAddBtn').textContent = '+ ADD SET';
+  }
+
+  function _setMsg(msg, type) {
+    var el = document.getElementById('fbSetMsg');
+    if (!el) return;
+    el.textContent = msg;
+    el.style.color = type === 'ok' ? 'var(--green)' : type === 'err' ? 'var(--red)' : 'var(--dim2)';
+    setTimeout(function(){ el.textContent = ''; }, 3000);
+  }
+
+  function _renderSets() {
+    var sets = _loadSets();
+    var container = document.getElementById('fbSetsContainer');
+    if (!container) return;
+    container.innerHTML = '';
+
+    var startRow = 1;
+    sets.forEach(function(s, i) {
+      var rows = parseInt(s.rows) || 17;
+      var endRow = startRow + rows - 1;
+
+      var card = document.createElement('div');
+      card.style.cssText = 'background:#000;border:1px solid ' + (i===0 ? 'rgba(0,229,255,0.35)' : 'var(--border)') + ';border-radius:10px;padding:10px 12px;margin-bottom:8px;animation:fadeSlideIn .3s ease both;animation-delay:' + (i*0.05) + 's;';
+
+      var activeTag = i === 0 ? '<span style="background:rgba(0,229,255,0.15);color:var(--green);font-size:9px;padding:2px 7px;border-radius:10px;font-weight:700;margin-left:6px;border:1px solid rgba(0,229,255,0.3);">ACTIVE</span>' : '';
+
+      card.innerHTML =
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">' +
+          '<div style="font-size:12px;font-weight:700;color:' + (i===0?'var(--green)':'var(--sky2)') + ';letter-spacing:1px;">SET ' + (i+1) + activeTag +
+            ' <span style="color:var(--dim2);font-size:10px;">[Rows ' + startRow + '–' + endRow + ']</span>' +
+          '</div>' +
+        '</div>' +
+        '<div style="font-size:11px;color:var(--dim2);line-height:1.9;font-family:\'Share Tech Mono\',monospace;">' +
+          'S11: <span style="color:var(--sky2);">' + s.m11_strip + '</span> | Ag11: <span style="color:var(--green);">' + s.m11_silver + '</span> | C11: <span style="color:var(--green);">' + s.m11_cornet + '</span><br>' +
+          'S12: <span style="color:var(--sky2);">' + s.m12_strip + '</span> | Ag12: <span style="color:var(--green);">' + s.m12_silver + '</span> | C12: <span style="color:var(--green);">' + s.m12_cornet + '</span>' +
+        '</div>' +
+        '<div style="display:flex;align-items:center;gap:8px;margin-top:8px;">' +
+          '<span style="font-size:11px;color:var(--dim2);letter-spacing:1px;">ROWS:</span>' +
+          '<input type="number" min="1" value="' + rows + '" id="fbRi_' + i + '" style="width:52px;background:#000;border:1px solid var(--border);border-radius:5px;color:var(--sky2);font-family:\'Share Tech Mono\',monospace;font-size:13px;font-weight:700;text-align:center;padding:4px;outline:none;">' +
+          '<button onclick="fbSaveRows(' + i + ')" style="padding:4px 10px;background:transparent;border:1px solid var(--sky3);border-radius:5px;color:var(--sky);font-family:\'Share Tech Mono\',monospace;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:1px;">SAVE</button>' +
+          '<button onclick="fbEditSet(' + i + ')" style="padding:4px 10px;background:transparent;border:1px solid var(--dim);border-radius:5px;color:var(--dim2);font-family:\'Share Tech Mono\',monospace;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:1px;margin-left:auto;">EDIT</button>' +
+          '<button onclick="fbDeleteSet(' + i + ')" style="padding:4px 10px;background:transparent;border:1px solid rgba(255,51,85,0.4);border-radius:5px;color:var(--red);font-family:\'Share Tech Mono\',monospace;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:1px;">DEL</button>' +
+        '</div>';
+
+      container.appendChild(card);
+      startRow = endRow + 1;
+    });
+
+    // Update "Add Set N" title
+    var titleEl = document.getElementById('fbAddSetTitle');
+    var btnEl   = document.getElementById('fbAddBtn');
+    if (titleEl && parseInt(btnEl.dataset.editIdx || '-1') < 0) {
+      titleEl.textContent = sets.length === 0
+        ? 'ADD SET 1 (FROM ROW 1)'
+        : 'ADD SET ' + (sets.length+1) + ' (FROM ROW ' + startRow + ')';
+    }
+
+    // Update active badge
+    var badge = document.getElementById('setsActiveBadge');
+    if (badge) badge.textContent = sets.length > 0 ? 'SET 1 ACTIVE · ' + sets.length + ' TOTAL' : 'NO SETS YET';
+  }
+
+  window.fbSaveRows = function(idx) {
+    var v = parseInt(document.getElementById('fbRi_' + idx).value);
+    if (!v || v < 1) { _setMsg('⚠ Min 1 row', 'err'); return; }
+    var sets = _loadSets();
+    sets[idx].rows = v;
+    _saveSets(sets);
+    _renderSets();
+    _setMsg('✓ Rows updated!', 'ok');
+  };
+
+  window.fbEditSet = function(idx) {
+    var sets = _loadSets();
+    var s = sets[idx];
+    document.getElementById('fb_m11_strip').value  = s.m11_strip;
+    document.getElementById('fb_m11_silver').value = s.m11_silver;
+    document.getElementById('fb_m11_cornet').value = s.m11_cornet;
+    document.getElementById('fb_m12_strip').value  = s.m12_strip;
+    document.getElementById('fb_m12_silver').value = s.m12_silver;
+    document.getElementById('fb_m12_cornet').value = s.m12_cornet;
+    document.getElementById('fb_rows').value = s.rows || 17;
+    document.getElementById('fbAddBtn').dataset.editIdx = idx;
+    document.getElementById('fbAddBtn').textContent = '✓ SAVE EDIT SET ' + (idx+1);
+    document.getElementById('fbAddSetTitle').textContent = 'EDIT SET ' + (idx+1);
+    document.getElementById('fbAddSetForm').scrollIntoView({behavior:'smooth'});
+  };
+
+  window.fbDeleteSet = function(idx) {
+    if (!confirm('Delete Set ' + (idx+1) + '?')) return;
+    var sets = _loadSets();
+    sets.splice(idx, 1);
+    _saveSets(sets);
+    _renderSets();
+    _setMsg('✓ Set deleted', 'ok');
+  };
+
+  // Init
+  document.addEventListener('DOMContentLoaded', function() { _renderSets(); });
+  // Also render + pull from Gist after app unlock (mainApp shown)
+  var _obs = new MutationObserver(function(muts) {
+    muts.forEach(function(m) {
+      if (m.target.id === 'mainApp' && m.type === 'attributes') {
+        _renderSets();
+        // Auto-pull Gist sets on unlock (silent — no msg)
+        setTimeout(function(){ _pullSetsFromGist(false); }, 800);
+      }
+    });
+  });
+  var _mainApp = document.getElementById('mainApp');
+  if (_mainApp) _obs.observe(_mainApp, { attributes: true, attributeFilter: ['style'] });
+  else window.addEventListener('load', function(){ _renderSets(); });
+})();
+</script>
+
 <!-- ══ APP PIN LOCK JS ══ -->
 <script>
 (function() {
@@ -2279,6 +2818,249 @@ if ('serviceWorker' in navigator) {
       .catch(e => console.warn('FireBolt RC: SW skipped', e));
   });
 }
+</script>
+
+<!-- ══ STORAGE INSPECTOR MODAL ══ -->
+<div id="storageModal" style="display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:#030008;z-index:99999;overflow:hidden;font-family:'Share Tech Mono',monospace;flex-direction:column;">
+
+  <!-- Top Bar -->
+  <div style="background:#0a0012;border-bottom:1px solid #3a1a4a;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+    <div>
+      <div style="color:#f8a5c2;font-size:13px;font-weight:700;letter-spacing:1.5px;">📦 STORAGE INSPECTOR</div>
+      <div id="storLastSync" style="color:#3a2a4a;font-size:10px;letter-spacing:1px;margin-top:2px;">Not loaded</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <button onclick="loadStorageData()" id="storRefreshBtn"
+        style="background:rgba(248,165,194,0.1);border:1px solid #f8a5c2;color:#f8a5c2;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:11px;font-weight:700;font-family:'Share Tech Mono',monospace;letter-spacing:1px;">↻ REFRESH</button>
+      <button onclick="closeStorageViewer()"
+        style="background:rgba(192,57,43,0.1);border:1px solid #c0392b;color:#e8635a;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:11px;font-weight:700;font-family:'Share Tech Mono',monospace;">✕</button>
+    </div>
+  </div>
+
+  <!-- Tab Bar -->
+  <div style="background:#060010;border-bottom:1px solid #1a0a2a;display:flex;flex-shrink:0;">
+    <button onclick="switchStorTab('today')" id="stab-today"
+      style="flex:1;padding:10px 4px;border:none;border-bottom:2px solid #f8a5c2;background:transparent;color:#f8a5c2;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:1px;">TODAY</button>
+    <button onclick="switchStorTab('sets')" id="stab-sets"
+      style="flex:1;padding:10px 4px;border:none;border-bottom:2px solid transparent;background:transparent;color:#3a2a4a;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:1px;">SETS</button>
+    <button onclick="switchStorTab('archive')" id="stab-archive"
+      style="flex:1;padding:10px 4px;border:none;border-bottom:2px solid transparent;background:transparent;color:#3a2a4a;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:1px;">ARCHIVES</button>
+    <button onclick="switchStorTab('gist')" id="stab-gist"
+      style="flex:1;padding:10px 4px;border:none;border-bottom:2px solid transparent;background:transparent;color:#3a2a4a;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:1px;">GIST</button>
+  </div>
+
+  <!-- Tab Content -->
+  <div id="storTabContent" style="flex:1;overflow-y:auto;padding:12px 14px;" data-tab="today">
+    <div style="color:#3a2a4a;text-align:center;padding:32px;font-size:12px;letter-spacing:1px;">Press REFRESH to load data</div>
+  </div>
+</div>
+
+<script>
+let _storData = null;
+
+function openStorageViewer() {
+  const m = document.getElementById('storageModal');
+  m.style.display = 'flex';
+  if (!_storData) loadStorageData();
+}
+function closeStorageViewer() {
+  document.getElementById('storageModal').style.display = 'none';
+}
+function switchStorTab(tab) {
+  ['today','sets','archive','gist'].forEach(t => {
+    const b = document.getElementById('stab-'+t);
+    b.style.borderBottomColor = t===tab ? '#f8a5c2' : 'transparent';
+    b.style.color = t===tab ? '#f8a5c2' : '#3a2a4a';
+  });
+  document.getElementById('storTabContent').dataset.tab = tab;
+  if (_storData) renderStorTab(tab, _storData);
+}
+
+async function loadStorageData() {
+  const btn = document.getElementById('storRefreshBtn');
+  const syncEl = document.getElementById('storLastSync');
+  btn.textContent = '⏳'; btn.disabled = true;
+  const bkGistId = localStorage.getItem(BK_GIST_KEY) || '';
+  const bkToken  = localStorage.getItem(BK_TOK_KEY) || localStorage.getItem(TOK_KEY) || '';
+  if (!bkGistId || !bkToken) {
+    document.getElementById('storTabContent').innerHTML = `<div style="padding:32px;text-align:center;"><div style="font-size:32px;margin-bottom:14px;">🔑</div><div style="color:#f8a5c2;font-size:13px;font-weight:700;margin-bottom:10px;">Backup Gist ID / Token Not Set</div><div style="color:#3a2a4a;font-size:11px;line-height:1.8;">Go to GitHub Credentials card<br>Save your <span style="color:#f8a5c2;">Data Backup Gist ID</span><br>and <span style="color:#f8a5c2;">Data Backup Token</span></div></div>`;
+    btn.textContent = '↻ REFRESH'; btn.disabled = false; return;
+  }
+  document.getElementById('storTabContent').innerHTML = '<div style="color:#8e44ad;text-align:center;padding:32px;font-size:12px;letter-spacing:1px;">☁️ Fetching from GitHub Gist...</div>';
+  try {
+    const r = await fetch(`https://api.github.com/gists/${bkGistId}`, {
+      headers: { 'Authorization': `Bearer ${bkToken}`, 'Accept': 'application/vnd.github+json' }, cache: 'no-store'
+    });
+    if (!r.ok) throw new Error('GitHub API Error — HTTP ' + r.status);
+    const gistResp = await r.json();
+    const raw = gistResp.files?.['bis_backup.json']?.content;
+    if (!raw) throw new Error('bis_backup.json not found in Gist');
+    _storData = JSON.parse(raw);
+    _storData._gist_updated = gistResp.updated_at;
+    _storData._bk_gist_id = bkGistId;
+    _storData._bk_token = bkToken;
+    syncEl.textContent = 'Last sync: ' + new Date().toLocaleTimeString('en-IN');
+    const activeTab = document.getElementById('storTabContent').dataset.tab || 'today';
+    renderStorTab(activeTab, _storData);
+  } catch(e) {
+    document.getElementById('storTabContent').innerHTML = `<div style="color:#e8635a;text-align:center;padding:32px;font-size:12px;">⚠️ ${e.message}</div>`;
+    syncEl.textContent = 'Failed — ' + new Date().toLocaleTimeString('en-IN');
+  }
+  btn.textContent = '↻ REFRESH'; btn.disabled = false;
+}
+
+function renderStorTab(tab, data) {
+  const el = document.getElementById('storTabContent');
+  el.dataset.tab = tab;
+  if (tab==='today')   el.innerHTML = renderTodayTab(data);
+  if (tab==='sets')    el.innerHTML = renderSetsTab(data);
+  if (tab==='archive') el.innerHTML = renderArchiveTab(data);
+  if (tab==='gist')    el.innerHTML = renderGistTab(data);
+}
+
+function renderTodayTab(data) {
+  const log = data.session_log || [];
+  const row916 = data.row_counter?.['916'] ?? '—';
+  const row750 = data.row_counter?.['750'] ?? '—';
+  const resetDate = data.last_reset_date || '—';
+  const pass = log.filter(e => e.pass).length;
+  const fail = log.length - pass;
+  const updated = data._gist_updated ? new Date(data._gist_updated).toLocaleString('en-IN') : '—';
+  let h = `<div style="background:#0a0012;border:1px solid #1a0a2a;border-radius:8px;padding:8px 12px;margin-bottom:10px;display:flex;justify-content:space-between;"><span style="color:#3a2a4a;font-size:10px;letter-spacing:1px;">GIST UPDATED</span><span style="color:#8e44ad;font-size:10px;font-weight:700;">${updated}</span></div>`;
+  h += sH('ROW COUNTERS','#00cfff');
+  h += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">${bC('916 — Next Row', row916!=='—'?'Row '+(parseInt(row916)+1):'—','#00cfff')}${bC('750 — Next Row', row750!=='—'?'Row '+(parseInt(row750)+1):'—','#7aa0ff')}</div>`;
+  h += iR('Session Date', resetDate, '#3a2a4a');
+  h += iR('Archives Saved', (data.archive_dates||[]).length + ' days', '#8e44ad');
+  h += sH('TODAY — ' + resetDate, '#f8a5c2');
+  h += `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;">${sC('Total',log.length,'#f8a5c2')}${sC('Pass ✅',pass,'#4ade80')}${sC('Fail ❌',fail,'#e8635a')}</div>`;
+  if (log.length === 0) {
+    h += `<div style="color:#3a2a4a;text-align:center;padding:20px;font-size:12px;">No entries today</div>`;
+  } else {
+    h += `<div style="font-size:10px;color:#3a2a4a;letter-spacing:1px;margin-bottom:6px;">ALL ${log.length} ENTRIES — LATEST FIRST</div>`;
+    h += `<div style="border:1px solid #1a0a2a;border-radius:8px;overflow:hidden;">`;
+    [...log].reverse().forEach((e,i) => {
+      const bg = i%2===0 ? '#08000f' : '#060008';
+      h += `<div style="background:${bg};padding:8px 10px;border-bottom:1px solid #100820;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:3px;">
+          <span style="color:#f8a5c2;font-weight:700;font-size:12px;">Row ${e.rowNum} &nbsp;·&nbsp; ${e.purity}</span>
+          <span style="color:${e.pass?'#4ade80':'#e8635a'};font-weight:700;font-size:11px;">${e.pass?'✅ PASS':'❌ FAIL'} &nbsp; ${e.mean}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:3px;">
+          <span style="color:#3a2a4a;">Set ${e.setIdx||'—'} &nbsp;·&nbsp; Job: ${e.jobCard||'—'}</span>
+          <span style="color:#3a2a4a;">${e.time||''}</span>
+        </div>
+        <div style="font-size:10px;color:#2a1a3a;">
+          S11:<span style="color:#94a3b8;">${e.M11_strip||'—'}</span> Ag11:<span style="color:#fca5a5;">${e.M11_silver||'—'}</span> C11:<span style="color:#94a3b8;">${e.M11_cornet||'—'}</span>
+          &nbsp;|&nbsp;
+          S12:<span style="color:#94a3b8;">${e.M12_strip||'—'}</span> Ag12:<span style="color:#fca5a5;">${e.M12_silver||'—'}</span> C12:<span style="color:#94a3b8;">${e.M12_cornet||'—'}</span>
+        </div>
+      </div>`;
+    });
+    h += `</div>`;
+  }
+  return h;
+}
+
+function renderSetsTab(data) {
+  const sets = data.sets || [];
+  const log = data.session_log || [];
+  let h = sH('VALUE SETS','#c678dd');
+  if (sets.length===0) return h+`<div style="color:#3a2a4a;text-align:center;padding:32px;font-size:12px;">No sets saved</div>`;
+  let filled=log.length, autoIdx=sets.length-1, cum=0;
+  for (let i=0;i<sets.length;i++) { cum+=(sets[i].rows||17); if(filled<cum){autoIdx=i;break;} }
+  sets.forEach((s,i) => {
+    const active=i===autoIdx, rows=s.rows||17;
+    h += `<div style="border:1px solid ${active?'#c678dd':'#1a0a2a'};border-radius:10px;padding:12px;margin-bottom:8px;background:${active?'rgba(198,120,221,0.06)':'#06000e'};">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <span style="color:${active?'#c678dd':'#8e44ad'};font-size:13px;font-weight:700;">SET ${i+1}${active?' &nbsp;◀ ACTIVE':''}</span>
+        <span style="color:#3a2a4a;font-size:11px;background:#100820;padding:3px 8px;border-radius:4px;">${rows} ROWS</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+        ${vC('M11 STRIP',s.m11_strip||'—','#94a3b8')}${vC('M11 SILVER',s.m11_silver||'—','#fca5a5')}${vC('M11 CORNET',s.m11_cornet||'—','#94a3b8')}
+        ${vC('M12 STRIP',s.m12_strip||'—','#94a3b8')}${vC('M12 SILVER',s.m12_silver||'—','#fca5a5')}${vC('M12 CORNET',s.m12_cornet||'—','#94a3b8')}
+      </div>
+    </div>`;
+  });
+  return h;
+}
+
+function renderArchiveTab(data) {
+  const archDates = data.archive_dates || [];
+  const archives = data.archives || {};
+  let h = sH('PAST SESSION ARCHIVES','#7aa0ff');
+  if (archDates.length===0) return h+`<div style="color:#3a2a4a;text-align:center;padding:32px;font-size:12px;">No archives yet<br><span style="font-size:10px;">Archives appear after daily reset (8 AM)</span></div>`;
+  [...archDates].sort((a,b)=>b.localeCompare(a)).forEach(date => {
+    const arch=archives[date]||{}, archLog=arch.log||[], archSets=arch.sets||[];
+    const archPass=archLog.filter(e=>e.pass).length, archFail=archLog.length-archPass;
+    h += `<div style="border:1px solid #0f1a30;border-radius:10px;overflow:hidden;margin-bottom:10px;">
+      <div style="background:#060e1a;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="color:#7aa0ff;font-size:13px;font-weight:700;">📅 ${date}</span>
+        <span style="color:#3a2a4a;font-size:10px;">${archLog.length} entries · ${archSets.length} sets</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#0f1a30;">
+        <div style="background:#06000e;padding:8px;text-align:center;"><div style="color:#3a2a4a;font-size:9px;margin-bottom:2px;">TOTAL</div><div style="color:#7aa0ff;font-size:16px;font-weight:700;">${archLog.length}</div></div>
+        <div style="background:#06000e;padding:8px;text-align:center;"><div style="color:#3a2a4a;font-size:9px;margin-bottom:2px;">PASS</div><div style="color:#4ade80;font-size:16px;font-weight:700;">${archPass}</div></div>
+        <div style="background:#06000e;padding:8px;text-align:center;"><div style="color:#3a2a4a;font-size:9px;margin-bottom:2px;">FAIL</div><div style="color:#e8635a;font-size:16px;font-weight:700;">${archFail}</div></div>
+      </div>`;
+    if (archSets.length>0) {
+      h += `<div style="background:#06000e;padding:8px 12px;border-top:1px solid #0f1a30;"><div style="color:#3a2a4a;font-size:10px;letter-spacing:1px;margin-bottom:6px;">SETS USED</div>`;
+      archSets.forEach((s,i) => {
+        h += `<div style="font-size:10px;color:#3a2a4a;margin-bottom:3px;"><span style="color:#8e44ad;font-weight:700;">Set ${i+1}</span> (${s.rows||17}r) — S11:<span style="color:#94a3b8;">${s.m11_strip||'—'}</span> Ag11:<span style="color:#fca5a5;">${s.m11_silver||'—'}</span> C11:<span style="color:#94a3b8;">${s.m11_cornet||'—'}</span> | S12:<span style="color:#94a3b8;">${s.m12_strip||'—'}</span> Ag12:<span style="color:#fca5a5;">${s.m12_silver||'—'}</span> C12:<span style="color:#94a3b8;">${s.m12_cornet||'—'}</span></div>`;
+      });
+      h += `</div>`;
+    }
+    if (archLog.length>0) {
+      h += `<div style="background:#06000e;border-top:1px solid #0f1a30;max-height:220px;overflow-y:auto;">`;
+      archLog.forEach((e,i) => {
+        h += `<div style="background:${i%2===0?'#08000f':'#060008'};padding:7px 12px;border-bottom:1px solid #100820;">
+          <div style="display:flex;justify-content:space-between;">
+            <span style="color:#f8a5c2;font-size:11px;font-weight:700;">Row ${e.rowNum} · ${e.purity}</span>
+            <span style="color:${e.pass?'#4ade80':'#e8635a'};font-size:11px;font-weight:700;">${e.pass?'✅':'❌'} ${e.mean}</span>
+          </div>
+          <div style="color:#3a2a4a;font-size:10px;">Set ${e.setIdx||'—'} · ${e.jobCard||'—'} · ${e.time||''}</div>
+        </div>`;
+      });
+      h += `</div>`;
+    }
+    h += `</div>`;
+  });
+  return h;
+}
+
+function renderGistTab(data) {
+  const bkGistId=data._bk_gist_id||'', bkToken=data._bk_token||'';
+  const updated=data._gist_updated?new Date(data._gist_updated).toLocaleString('en-IN'):'—';
+  const rcGist=localStorage.getItem(GIST_KEY)||'', rcToken=localStorage.getItem(TOK_KEY)||'';
+  const log=data.session_log||[], sets=data.sets||[], archDates=data.archive_dates||[];
+  const row916=data.row_counter?.['916']??'—', row750=data.row_counter?.['750']??'—';
+  let h = sH('GIST CONNECTION STATUS','#e8635a');
+  h += `<div style="border:1px solid #1a0a2a;border-radius:8px;padding:10px 12px;margin-bottom:8px;background:#06000e;">
+    <div style="color:#f8a5c2;font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:8px;">DATA BACKUP GIST</div>
+    ${iR('Gist ID', bkGistId?'✅ '+bkGistId.substring(0,16)+'...':'❌ Not set', bkGistId?'#4ade80':'#e8635a')}
+    ${iR('Token', bkToken?'✅ '+bkToken.substring(0,12)+'...':'❌ Not set', bkToken?'#4ade80':'#e8635a')}
+    ${iR('Last Updated', updated, '#8e44ad')}
+    ${iR('File', 'bis_backup.json', '#3a2a4a')}
+  </div>`;
+  h += `<div style="border:1px solid #1a0a2a;border-radius:8px;padding:10px 12px;margin-bottom:8px;background:#06000e;">
+    <div style="color:#7aa0ff;font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:8px;">REMOTE CONTROL GIST</div>
+    ${iR('Gist ID', rcGist?'✅ '+rcGist.substring(0,16)+'...':'❌ Not set', rcGist?'#4ade80':'#e8635a')}
+    ${iR('Token (GH)', rcToken?'✅ '+rcToken.substring(0,12)+'...':'❌ Not set', rcToken?'#4ade80':'#e8635a')}
+    ${iR('File', 'bis_control.json', '#3a2a4a')}
+  </div>`;
+  h += sH('BACKUP CONTENTS','#c678dd');
+  h += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+    ${sC('Today Log', log.length+' entries','#f8a5c2')}${sC('Sets Saved', sets.length,'#c678dd')}
+    ${sC('Archives', archDates.length+' days','#7aa0ff')}${sC('Row 916', row916!=='—'?'Next '+(parseInt(row916)+1):'—','#00cfff')}
+  </div>`;
+  if (archDates.length>0) h += iR('Archived Dates', [...archDates].sort((a,b)=>b.localeCompare(a)).join(', '), '#3a2a4a');
+  return h;
+}
+
+function sH(t,c){return `<div style="color:${c};font-size:11px;font-weight:700;letter-spacing:1.5px;margin:12px 0 8px;padding-bottom:5px;border-bottom:1px solid ${c}22;">${t}</div>`;}
+function bC(l,v,c){return `<div style="background:#06000e;border:1px solid ${c}22;border-radius:8px;padding:10px;text-align:center;"><div style="color:#3a2a4a;font-size:9px;letter-spacing:1px;margin-bottom:4px;">${l}</div><div style="color:${c};font-size:17px;font-weight:700;">${v}</div></div>`;}
+function sC(l,v,c){return `<div style="background:#06000e;border:1px solid ${c}22;border-radius:6px;padding:8px;text-align:center;"><div style="color:#3a2a4a;font-size:9px;margin-bottom:3px;">${l}</div><div style="color:${c};font-size:15px;font-weight:700;">${v}</div></div>`;}
+function vC(l,v,c){return `<div style="background:#08000f;border:1px solid #1a0a2a;border-radius:5px;padding:6px 8px;text-align:center;"><div style="color:#3a2a4a;font-size:9px;margin-bottom:3px;">${l}</div><div style="color:${c};font-size:13px;font-weight:700;">${v}</div></div>`;}
+function iR(l,v,c){return `<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #0a0015;"><span style="color:#3a2a4a;font-size:10px;">${l}</span><span style="color:${c};font-size:10px;font-weight:700;text-align:right;max-width:65%;">${v}</span></div>`;}
 </script>
 </body>
 </html>
